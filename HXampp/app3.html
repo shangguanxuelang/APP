@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<title></title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+		
+		<style type="text/css">
+			body{
+				background: #ededed;
+			}
+			.head{
+				height: 0.61rem;
+				overflow: hidden;
+				background: #fff;
+				border-bottom: 0.01rem solid #dedede;
+			}
+			.center{
+				margin-left: 0.2rem;
+				margin-right: 0.2rem;
+			}
+			.top{
+				margin-top: 0.15rem;
+			}
+			.top>img{
+				width: 0.42rem;
+				height: 0.36rem;
+				float: left;
+			}
+			.hright>p{
+				width: 5.16rem;
+				text-align: center;
+				margin-top: 0.05rem;
+				font-size: 0.24rem;
+			}
+			.hright>img{
+				width: 0.42rem;
+				height: 0.4rem;
+				
+			}
+			.nav{
+				position: relative;
+				background: #fff;
+			}
+			#mylist>li{
+				float: left;
+				width: 33.3333%;
+				height: 0.49rem;
+				text-align: center;
+				line-height: 0.49rem;
+				font-size: 0.16rem;
+				
+			}
+			#mylist .active{
+				color: #0f91dd;
+			}
+			#mylist>li>img{
+				width: 0.18rem;
+				height: 0.18rem;
+				vertical-align: middle;
+				margin-left: 0.05rem;
+			}
+			#xbk{
+				height: 0.02rem;
+				width: 33.3333%;
+				background: #0f91dd;
+				position: absolute;
+				top: 0.49rem;
+				left: 0;
+			}
+			.search{
+				margin-top: 0.11rem;
+				padding-bottom: 0.13rem;
+			}
+			.s1{
+				height: 0.57rem;
+				background: #fff;
+			}
+			#inp{
+				height: 0.36rem;
+				width: 5.15rem;
+				margin-top: 0.13rem;
+				border: none;
+				border-right: 0.02rem solid #ededed;
+				box-sizing: border-box;
+				float: left;
+				color: #ededed;
+				padding-left: 0.2rem;
+			}
+			.searchbox{
+				width: 0.63rem;
+				height: 0.57rem;
+				text-align: center;
+				
+			}
+			.searchbox>img{
+				width: 0.32rem;
+				height: 0.32rem;
+				margin-top: 0.15rem;
+			}
+			.same{
+				background: #fff;
+				border-bottom: 0.01rem solid #dedede;
+			}
+			.same>img{
+				width: 100%;
+				height: 2.76rem;
+			}
+			.same .center>p:nth-of-type(1){
+				font-size: 0.22rem;
+				margin-top: 0.17rem;
+				margin-bottom: 0.1rem;
+				font-weight: bold;
+			}
+			.same .center>p:nth-of-type(2){
+				font-size: 0.16rem;
+				margin-bottom: 0.13rem;
+			}
+			.same .center>span{
+				font-size: 0.14rem;
+			}
+			.same .center>span:nth-of-type(2){
+				font-size: 0.16rem;
+				color: #f11d1c;
+				margin-right: 0.25rem;
+			}
+			.center>span:nth-of-type(3){
+				margin-right: 0.27rem;
+			}
+			.same .center>button{
+				width: 2.88rem;
+				height: 0.39rem;
+				line-height: 0.39rem;
+				text-align: center;
+				color: #fff;
+				margin-top: 0.21rem;
+				border: none;
+				border-radius: 3px;
+				margin-bottom: 0.17rem;
+			}
+			.same .center>button:nth-of-type(1){
+				margin-left: 0.04rem;
+				background: #fc8026;
+			}
+			.same .center>button:nth-of-type(2){
+				margin-left: 0.08rem;
+				background: #108cde;
+			}
+			h2{
+				width: 100%;
+				height: 0.12rem;
+				background: #ededed;
+				border-top: 0.01rem solid #fff;
+			}
+			.more{
+				margin-top: 0.1rem;
+			}
+			.moreto>img{
+				width: 0.14rem;
+				height: 0.13rem;
+				margin-left: 0.05rem;
+			}
+			.moreto{
+				background: #fff;
+				text-align: center;
+				height: 0.39rem;
+				line-height: 0.39rem;
+				font-size: 0.14rem;
+			}
+			.bottom{
+				margin-top: 0.28rem;
+				text-align: center;
+			}
+			#bottom1>a{
+				font-size: 0.18rem;
+				margin-right: 0.24rem;
+				font-weight: 500;
+				display: inline-block;
+				color: #000;
+			}
+			#bottom1>.active{
+				color: red;
+			}
+			#bottom2{
+				margin-top: 0.14rem;
+			}
+			#bottom2>a{
+				font-size: 0.14rem;
+				font-weight: 500;
+				display: inline-block;
+				color: #c6c6c6;
+			}
+			#bottom2>b{
+				height: 0.14rem;
+				margin-left: 0.15rem;
+				margin-right: 0.1rem;
+				border-left: 0.02rem solid #ededed;
+				border-right-color: #c6c6c6;
+			}
+			.bottom>p{
+				margin-top: 0.12rem;
+				font-size: 0.14rem;
+				color: #c6c6c6;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<div class="center top clearfix">
+				<img src="img2/home-icon.png" alt="" />
+				<div class="hright fr clearfix">
+					<p class="fl">选项目</p>
+					<img src="img2/head-icon.png" class="fr"/>
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<ul id="mylist" class="clearfix">
+				<li class="active">综合排序</li>
+				<li>更新时间</li>
+				<li>条件筛选<img src="img2/shaxuan.png" alt="" /></li>
+			</ul>
+			<div id="xbk"></div>
+		</div>
+		<div class="search">
+			<div class="center s1 clearfix">
+				<input type="text" id="inp" value="在当前环境下搜索" />
+				<div class="searchbox fr">
+					<img src="img2/search-icon.png" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="same">
+			<img src="img2/more-pro.png" alt="" />
+			<div class="center">
+				<p>盟易融</p>
+				<p>河北省某国企控股物流公司融资</p>
+				<span>融资金额  : </span><span> 30000万</span><span>所在地区  : 河北省</span><span>融资类型  : 其他融资</span>
+				<button>约谈项目方</button><button>查看联系方式</button>
+			</div>
+		</div>
+		<h2></h2>
+		<div class="same">
+			<img src="img2/more-pro.png" alt="" />
+			<div class="center">
+				<p>盟易融</p>
+				<p>河北省某国企控股物流公司融资</p>
+				<span>融资金额  : </span><span> 30000万</span><span>所在地区  : 河北省</span><span>融资类型  : 其他融资</span>
+				<button>约谈项目方</button><button>查看联系方式</button>
+			</div>
+		</div>
+		<h2></h2>
+		<div class="same">
+			<img src="img2/more-pro.png" alt="" />
+			<div class="center">
+				<p>盟易融</p>
+				<p>河北省某国企控股物流公司融资</p>
+				<span>融资金额  : </span><span> 30000万</span><span>所在地区  : 河北省</span><span>融资类型  : 其他融资</span>
+				<button>约谈项目方</button><button>查看联系方式</button>
+			</div>
+		</div>
+		<h2></h2>
+		<div class="more">
+			<div class="center moreto">点击查看更多<img src="img2/xiala.png" alt="" /></div>
+		</div>
+		<div class="bottom">
+			<div id="bottom1">
+				<a href="#" class="active">触屏版</a>
+				<a href="#">电脑版</a>
+				<a href="#">关于我们</a>
+			</div>
+			<div id="bottom2">
+				<a href="#">联系我们</a><b></b>
+				<a href="#">建议与投诉</a><b></b>
+				<a href="#">诚聘英才</a>
+			</div>
+			<p>copyright&copy; 2016 北京华夏商盟版权所有  京ICP备16041114号</p>
+		</div>
+		
+		
+		<script type="text/javascript" src="js/swiper-3.4.2.min.js"></script>
+		<script type="text/javascript" src="js/tween.js"></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+				
+		        var docEle = doc.documentElement,
+		                resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize';
+		        var recalCulate = function () {
+		            var width = docEle.clientWidth;
+		            docEle.style.fontSize = 100 * (width / 640) + 'px';
+		        };
+		
+		        recalCulate();
+		
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvent, recalCulate, false);
+		    })(document, window);
+		    //siper
+		    var mySwiper = new Swiper ('.swiper-container', {
+			    direction: 'horizontal',
+			    loop: true,
+			    autoplay: 3000,
+			    
+//			    // 如果需要分页器
+//			    pagination: '.swiper-pagination',
+//			    
+//			    // 如果需要前进后退按钮
+//			    nextButton: '.swiper-button-next',
+//			    prevButton: '.swiper-button-prev',
+//			    
+//			    // 如果需要滚动条
+//			    scrollbar: '.swiper-scrollbar',
+			  })
+		</script>
+		<script type="text/javascript">
+			var bottom1=document.getElementById('bottom1');
+			var a=bottom1.getElementsByTagName('a');
+			var mylist=document.getElementById('mylist');
+			var lis=mylist.getElementsByTagName('li');
+			var xbk=document.getElementById('xbk');
+			
+			console.log(xbk.offsetLeft);
+			
+			for(var i=0;i<a.length;i++){
+				a[i].index=i;
+				a[i].onclick=function(){
+					clear();
+					this.className="active";
+				}
+			}
+			function clear(){
+				for(var i=0;i<a.length;i++){
+					a[i].className="";
+				}
+			}
+			
+			for(var i=0;i<lis.length;i++){
+				lis[i].index=i;
+				lis[i].onclick=function(){
+					clear2();
+					move(this.index);
+				}
+			}
+			//定义下划线移动
+			function move(i){
+				var t=0;
+				var maxT=150;
+				var start=xbk.offsetLeft;
+				var end=lis[i].offsetLeft;
+				var change=end-start;
+				time=setInterval(function(){
+					t++;
+					if(t>=maxT){
+						clearInterval(time);
+						lis[i].className="active";
+					}
+					xbk.style.left=Tween.Bounce.easeOut(t,start,change,maxT)+'px';
+				},1)
+			}
+			function clear2(){
+				for(var i=0;i<lis.length;i++){
+					lis[i].className="";
+				}
+			}
+		</script>
+	</body>
+</html>

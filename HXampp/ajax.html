@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名: <input type="text" /><br />
+		密   &nbsp;码: <input type="password" /><br>
+		<button>提交</button>
+		
+		<script type="text/javascript">
+			var user=document.getElementsByTagName('input')[0];
+			var passwd=document.getElementsByTagName('input')[1];
+			var btn=document.getElementsByTagName('button')[0];
+			
+			console.log(btn);
+			console.log(user);
+			btn.onclick=function(){
+				//买一个手机
+				if(window.XMLHttpRequest){
+					var xhr=new XMLHttpRequest();
+				}else{
+					var xhr=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				//输入对方的电话号码
+				xhr.open("GET","form.php?user="+user.value+"&passwd="+passwd.value,true);
+				xhr.send(null);
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						var str=xhr.responseText;
+						console.log(str);
+						var obj=JSON.parse(str);
+						console.log(obj);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

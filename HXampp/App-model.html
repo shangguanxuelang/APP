@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,minimum-scale=1,maxinum-scale=1,user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+			<style type="text/css">
+				
+			</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide"><img src="img2/banner.png"/></div>
+		        <div class="swiper-slide"><img src="img2/banner.png"/></div>
+		        <div class="swiper-slide"><img src="img2/banner.png"/></div>
+		    </div>
+		    <!-- 如果需要分页器 -->
+		    <!--<div class="swiper-pagination"></div>-->
+		    
+		    <!-- 如果需要导航按钮 -->
+		    <!--<div class="swiper-button-prev"></div>-->
+		    <!--<div class="swiper-button-next"></div>-->
+		    
+		    <!-- 如果需要滚动条 -->
+		    <!--<div class="swiper-scrollbar"></div>-->
+		</div>
+		
+		<script type="text/javascript" src="js/swiper-3.4.2.min.js"></script>
+		<script type="text/javascript" src="js/tween.js"></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+				
+		        var docEle = doc.documentElement,
+		                resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize';
+		        var recalCulate = function () {
+		            var width = docEle.clientWidth;
+		            docEle.style.fontSize = 100 * (width / 640) + 'px';
+		        };
+		
+		        recalCulate();
+		
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvent, recalCulate, false);
+		    })(document, window);
+		    //siper
+		    var mySwiper = new Swiper ('.swiper-container', {
+			    direction: 'horizontal',
+			    loop: true,
+			    autoplay: 3000,
+			    
+//			    // 如果需要分页器
+//			    pagination: '.swiper-pagination',
+//			    
+//			    // 如果需要前进后退按钮
+//			    nextButton: '.swiper-button-next',
+//			    prevButton: '.swiper-button-prev',
+//			    
+//			    // 如果需要滚动条
+//			    scrollbar: '.swiper-scrollbar',
+			  })
+		</script>
+	</body>
+</html>

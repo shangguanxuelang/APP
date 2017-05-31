@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#weatherList{
+				list-style: none;
+				overflow: hidden;
+			}
+			#weatherList li{
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+		<select id="slc">
+			<option value="">--请选择城市--</option>
+			<option value="北京">北京</option>
+			<option value="上海">上海</option>
+			<option value="广州">广州</option>
+			<option value="郑州">郑州</option>
+			<option value="南阳">南阳</option>
+			<option value="许昌">许昌</option>
+		</select>
+		<ul id="weatherList">
+			<li>
+				<!--<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>-->
+				
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var slc=document.getElementById('slc');
+		var weatherList=document.getElementById('weatherList');
+		slc.onchange=function(){
+			weatherList.innerHTML="";
+			if(window.XMLHttpRequest){
+				var xhr=new XMLHttpRequest();
+			}else{
+				var xhr=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xhr.open("GET","weather.php?city="+slc.value,true);
+			xhr.send(null);
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var str=xhr.responseText;
+//					console.log(str);
+					var obj=JSON.parse(str);
+//					console.log(obj);
+					var weather_deta=obj.results[0].weather_data;
+					console.log(weather_deta);
+					//遍历数组，依次取值
+					for(var i=0;i<weather_deta.length;i++){
+						var makeLi=document.createElement('li');
+						makeLi.innerHTML="<div>"+weather_deta[i].date+"</div><div><img src='"+weather_deta[i].dayPictureUrl+"'/></div><div><img src='"+weather_deta[i].nightPictureUrl+"'/></div><div>"+weather_deta[i].weather+"</div><div>"+weather_deta[i].wind+"</div><div>"+weather_deta[i].temperature+"</div>";
+						weatherList.appendChild(makeLi);
+					}
+				}
+			}
+		}
+	</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#outer{
+				width: 400px;
+				margin: 200px auto;
+			}
+			#inp{
+				width: 100%;
+				line-height: 30px;
+				box-sizing: border-box;
+				outline: none;
+				font-size: 24px;
+			}
+			#mylist{
+				width: 100%;
+				list-style: none;
+				border-right: 1px solid #ccc;
+			}
+			#mylist li{
+				background: pink;
+				border-bottom: 1px solid #ccc;
+				border-left: 1px solid #ccc;
+				line-height: 30px;
+				font-size: 24px;
+				padding-left: 10px;
+			}
+			#mylist li:hover{
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+			<input type="text" id="inp" />
+			<ul id="mylist">
+				<li>提示语</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var inp=document.getElementById('inp');
+			var mylist=document.getElementById('mylist');
+			inp.oninput=function(){
+				var scpt=document.createElement('script');
+				scpt.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+inp.value+"&json=1&p=3&sid=1467_21088_17001_22918_22160&req=2&csor=3&pwd=SA&cb=f";
+				document.body.appendChild(scpt);
+				document.body.removeChild(scpt);
+			}
+			function f(obj){
+				//清空ul的所有子元素
+				mylist.innerHTML=null;
+				//获取提示词语的数组
+				var worsArr=obj.s;
+				for(var i=0;i<worsArr.length;i++){
+					makeli=document.createElement('li');
+					makeli.innerHTML=worsArr[i];
+					mylist.appendChild(makeli);
+				}
+			}
+		</script>
+	</body>
+</html>

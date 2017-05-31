@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#outer{
+				width: 500px;
+				margin: 100px auto;
+				border: 1px solid #ccc;
+				background: pink;
+			}
+			#inp{
+				width: 450px;
+				height: 40px;
+				line-height: 40px;
+				box-sizing: border-box;
+				font-size: 18px;
+			}
+			#btn{
+				width: 50px;
+				box-sizing: border-box;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				font-size: 18px;
+			}
+			#wordsBox{
+				height: 460px;
+				overflow-y: auto;
+			}
+			#wordsBox div{
+				line-height: 30px;
+				margin-bottom: 5px;
+				border-radius: 5px;
+				background: red;
+			}
+			.myWords{
+				text-align: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+			<input type="text" id="inp"/><button id="btn">提交</button>
+			<div id="wordsBox"></div>
+		</div>
+		<script type="text/javascript">
+			var outer=document.getElementById('outer');
+			var inp=document.getElementById('inp');
+			var btn=document.getElementById('btn');
+			var wordsBox=document.getElementById('wordsBox');
+			
+			//点击提交按钮发送问答请求
+			btn.onclick=function(){
+				createWords();
+			}
+			//点击键盘enter发送问答请求
+			document.onkeydown=function(e){
+				var e=e||window.event;
+				if(e.keyCode==13){
+					createWords();
+				}
+			}
+			//获取内容函数
+			function createWords(){
+				//创建我的会话气泡
+				var myWords=document.createElement('div');
+				myWords.innerHTML=inp.value;
+				myWords.setAttribute('class','myWords');
+				wordsBox.appendChild(myWords);
+				//买一个电话
+				if(window.XMLHttpRequest){
+					var xhr=new XMLHttpRequest();
+				}else{
+					var xhr=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				var url="http://www.tuling123.com/openapi/api";
+				xhr.open("POST",url,true);
+				xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				xhr.send("key=bc41e425bc79487c876f8c4afc55f929&info="+inp.value+"&userid=1");
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						var str=xhr.responseText;
+						var robotWords=document.createElement('div');
+						robotWords.innerHTML=JSON.parse(str).text;
+						wordsBox.appendChild(robotWords);
+						wordsBox.scrollTop=robotWords.offsetTop+robotWords.offsetHeight;
+					}
+				}
+				//清空输入框内容
+				inp.value=null;
+			}
+		</script>
+	</body>
+</html>
